@@ -15,3 +15,6 @@ From the command line
 ```
 python tweego_file_splitter tweefile [outputDirectory]
 ```
+
+## Dependencies
+* Python 3
