@@ -11,7 +11,30 @@ Notable changes :
 Only tested in commandline mode under windows10 for now and it works. Should also work wherever python could be installed if you can launch a python script.<br>
 Not tested : usage from within another python file like described below in the original Readme.md.</p>
 <p>Uses re, sys, os, Path from pathlib, Optional from typing.</p>
+
+## About patterns, titles and tags
+The script splits the twee file passed in argument based on patterns defined at the beginning, like this :<br>
+
+> passage_pattern = re.compile(r":: (.+)\n((?:(?:.*\n)(?!:: ))*)")
+<p>(something like :: PassageTitle [tag1 tag2 ...] )</p>
 <br>
+Splitting Titles and Tags are defined just below, like this :<br>
+
+>SPECIAL_TITLES = [
+>    "PassageDone", "PassageFooter", "PassageHeader", "PassageReady",
+>    "StoryBanner", "StoryCaption", "StoryDisplayTitle", "StoryInit",
+>    "StoryMenu"
+]
+>
+>STORY_DATA_TITLES = ["StoryData", "StoryTitle"]
+>
+>TAG_SUBFOLDERS = {
+>    'stylesheet': 'StyleSheet',
+>    'script': 'StoryScripts',
+>    'widget': 'Widgets'
+>}
+<br>
+<p>Just to say that splitting is done with those definitions, so if your twee file is made with other patterns or you want different tags, less or more subfolders you have to modify those sections by yourself inside the code.</p>
 <br>
 
 Original Readme :<br>
