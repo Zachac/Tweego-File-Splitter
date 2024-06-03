@@ -1,7 +1,26 @@
-# Forked from Zachac/Tweego-File-Splitter
-This is a fork of https://github.com/Zachac/Tweego-File-Splitter with some significant rework done with the help of Copilot.
+# Tweego-File-Splitter
+Splits a .twee file up into separate files. By default, a new folder is created to house the split files.
 
-Notable changes :
+## Purpose
+As of the current version (1.3.0) of [Tweego](https://www.motoslave.net/tweego/), decompiling will result in a single large file. However, a large benefit of using Tweego is to be able to organize a Twee game into a folder structure. To convert the single decompiled file into this folder structure requires spending large amounts of times simply creating new files. So having the ability to automatically split large .twee files can help automate this process.
+
+## Usage
+From within another python file
+```python
+import tweego_file_splitter
+tweego_file_splitter.splitFile("fileToSplit.twee")
+```
+
+From the command line
+```
+python tweego_file_splitter tweefile [outputDirectory]
+```
+## Dependencies
+* Python 3
+
+## Changelog
+
+### 1.0.1 (Update By Mellerin using Copilot)
 - use utf8 as decoding for the script to just work.
 - sanitize filenames because sometime passages titles introduce an error with incorrect character in filename / path.
 - include subdirectories for special files / sections (SpecialPassages, StoryData, StoryScripts, StyleSheet, Widgets). Please note that it's not an option (yet?) so it writes files under subfolders even if you don't want to.
@@ -12,7 +31,7 @@ Only tested in commandline mode under windows10 for now and it works. Should als
 Not tested : usage from within another python file like described below in the original Readme.md.</p>
 <p>Uses re, sys, os, Path from pathlib, Optional from typing.</p>
 
-## About patterns, titles and tags
+#### About patterns, titles and tags
 The script splits the twee file passed in argument based on patterns defined at the beginning, like this :<br>
 
 > passage_pattern = re.compile(r":: (.+)\n((?:(?:.*\n)(?!:: ))*)")
@@ -37,24 +56,6 @@ Splitting Titles and Tags are defined just below, like this :<br>
 <p>Just to say that splitting is done with those definitions, so if your twee file is made with other patterns or you want different tags, less or more subfolders you have to modify those sections by yourself inside the code.</p>
 <br>
 
-Original Readme :<br>
-# Tweego-File-Splitter
-Splits a .twee file up into separate files. By default, a new folder is created to house the split files.
-
-## Purpose
-As of the current version (1.3.0) of [Tweego](https://www.motoslave.net/tweego/), decompiling will result in a single large file. However, a large benefit of using Tweego is to be able to organize a Twee game into a folder structure. To convert the single decompiled file into this folder structure requires spending large amounts of times simply creating new files. So having the ability to automatically split large .twee files can help automate this process.
-
-## Usage
-From within another python file
-```python
-import tweego_file_splitter
-tweego_file_splitter.splitFile("fileToSplit.twee")
-```
-
-From the command line
-```
-python tweego_file_splitter tweefile [outputDirectory]
-```
-
-## Dependencies
-* Python 3
+## Tested With
+- Version 1.0.0 tested with Tweego 1.3.0 and Python 3.7.3
+- Version 1.0.1 tested with Tweego 2.1.1 and Python 3.7.3
