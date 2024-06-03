@@ -1,10 +1,3 @@
-'''
-Heavily based on tweego-file-splitter by Zachac :
-https://github.com/Zachac/Tweego-File-Splitter/blob/master/tweego_file_splitter.py
-which doesn't work, so re-worked it with the huge help of Code Copilot.
-(yes, in fact it did most of the re-work (｡•̀ᴗ-)✧ )
-'''
-
 import re
 import sys
 import os
